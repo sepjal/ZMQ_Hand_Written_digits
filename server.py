@@ -36,7 +36,10 @@ while True: # or a specific number of runs...
     bytes = bytearray(f_in.read())
     strng = base64.b64encode(bytes)
     socket.send(strng)
-    # do whatever else here while the response from client is being prepared
+    
+    # do whatever else here while the response from client is being prepared. 
+    # a decorator (wrapper) could be helpful in this part
+    
     # receive the processed image from the client
     message = socket.recv()
     
