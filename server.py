@@ -1,8 +1,8 @@
 # This server is used to send an image to the client.
-# The processing if done from the client using HWDigitRecog.py and once the image is processed, the result is sent back to the server. 
+# The processing if done from the client side and once the image is processed, the result is sent back to the server. 
 
 
-# in this code, the server sends an image through the ZMQ socket to the client and receives the processed image from the client
+# in this code, the server sends an image through the ZMQ socket to the client and receives the processed image classification label from the client
 import zmq
 import base64
 import time
@@ -22,15 +22,8 @@ print("Server connected to Client successfully and Received ready status: %s" % 
 # loading skleanr dataset digits
 # here we load the dataset 
 digits = load_digits()
-#print(digits.data.shape)
-#sample_image = digits.images[random.randint(0,digits.data.shape[0])]
 
-#f = open("test.jpg", 'wb')
-#f = "test.bmp"
-
-#cv2.imwrite(f, sample_image)
-
-while True:
+while True: # or a specific number of runs...
     
     # send the image to client for processing
     # first sample one random image and save it to disk.
